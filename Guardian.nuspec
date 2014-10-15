@@ -1,0 +1,14 @@
+﻿<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>Guardian</id>
+    <version>0.0.0</version>
+    <authors>Evgeny Nazarov</authors>
+    <owners>Evgeny Nazarov</owners>
+    <projectUrl>http://guardian.codeplex.com/</projectUrl>
+    <iconUrl>https://www.codeplex.com/</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Guardian is a design-by-contract assertion framework</description>
+    <tags>Guardian Design Contract Assert Assertion Framework</tags>
+  </metadata>
+</package>
