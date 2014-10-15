@@ -11,9 +11,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{408F3710
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Guardian.Net45", "Guardian.Net45\Guardian.Net45.csproj", "{42D7BEB6-B634-4C00-8D5E-3761CF6AC007}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Guardian.Net35", "Guardian.Net35\Guardian.Net35.csproj", "{DF3658D7-4B7E-4978-80D9-BB075B1243A3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Guardian.Net451", "Guardian.Net451\Guardian.Net451.csproj", "{AF38F3C6-BCAB-4E33-8416-A0D55880BD96}"
+EndProject
 Global
 	GlobalSection(TeamFoundationVersionControl) = preSolution
-		SccNumberOfProjects = 4
+		SccNumberOfProjects = 6
 		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
 		SccTeamFoundationServer = https://tfs.codeplex.com/tfs/tfs28
 		SccLocalPath0 = .
@@ -27,6 +31,12 @@ Global
 		SccProjectUniqueName3 = Guardian.Net45\\Guardian.Net45.csproj
 		SccProjectName3 = Guardian.Net45
 		SccLocalPath3 = Guardian.Net45
+		SccProjectUniqueName4 = Guardian.Net35\\Guardian.Net35.csproj
+		SccProjectName4 = Guardian.Net35
+		SccLocalPath4 = Guardian.Net35
+		SccProjectUniqueName5 = Guardian.Net451\\Guardian.Net451.csproj
+		SccProjectName5 = Guardian.Net451
+		SccLocalPath5 = Guardian.Net451
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +55,14 @@ Global
 		{42D7BEB6-B634-4C00-8D5E-3761CF6AC007}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{42D7BEB6-B634-4C00-8D5E-3761CF6AC007}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{42D7BEB6-B634-4C00-8D5E-3761CF6AC007}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DF3658D7-4B7E-4978-80D9-BB075B1243A3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DF3658D7-4B7E-4978-80D9-BB075B1243A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DF3658D7-4B7E-4978-80D9-BB075B1243A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DF3658D7-4B7E-4978-80D9-BB075B1243A3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AF38F3C6-BCAB-4E33-8416-A0D55880BD96}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AF38F3C6-BCAB-4E33-8416-A0D55880BD96}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AF38F3C6-BCAB-4E33-8416-A0D55880BD96}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AF38F3C6-BCAB-4E33-8416-A0D55880BD96}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

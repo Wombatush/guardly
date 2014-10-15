@@ -39,21 +39,21 @@
 namespace Guardian
 {
     using System;
-    using System.Linq.Expressions;
+    using System.Reflection;
 
     public sealed class Argument<T> : GuardBase<T>
     {
-        private readonly Lazy<string> name;
+        private readonly MemberInfo member;
 
-        internal Argument(int hashCode, Expression<Func<T>>  expression, MemberExpression memberExpression)
-            : base(hashCode, new Lazy<Func<T>>(expression.Compile))
+        internal Argument(int hashCode, Func<T> getter, MemberInfo member)
+            : base(hashCode, getter)
         {
-            name = new Lazy<string>(() => memberExpression.Member.Name);
+            this.member = member;
         }
 
         public string Name
         {
-            get { return name.Value; }
+            get { return member.Name; }
         }
     }
 }

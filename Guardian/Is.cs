@@ -53,7 +53,7 @@ namespace Guardian
         {
             if (ReferenceEquals(argument.Value, null))
             {
-                var reason = Reason.ComposeReason("Provided parameter should not be null", message);
+                var reason = Reason.Compose("Provided parameter should not be null", message);
 
                 throw new ArgumentNullException(argument.Name, reason.ToString());
             }
@@ -64,7 +64,7 @@ namespace Guardian
         //// {
         ////     if (!argument.Value.Any())
         ////     {
-        ////         var reason = Reason.ComposeReason("Provided parameter should not be an empty sequence", message).ToString();
+        ////         var reason = Reason.Compose("Provided parameter should not be an empty sequence", message).ToString();
         ////         
         ////         throw new ArgumentOutOfRangeException(argument.Name, reason.ToString());
         ////     }
@@ -75,14 +75,14 @@ namespace Guardian
             var value = argument.Value;
             if (value == null)
             {
-                var reason = Reason.ComposeReason("Provided string should not be null", message);
+                var reason = Reason.Compose("Provided string should not be null", message);
 
                 throw new ArgumentNullException(argument.Name, reason.ToString());
             }
             
             if (value == string.Empty)
             {
-                var reason = Reason.ComposeReason("Provided string should not be empty", message);
+                var reason = Reason.Compose("Provided string should not be empty", message);
 
                 throw new ArgumentOutOfRangeException(argument.Name, value, reason.ToString());
             }
@@ -93,14 +93,14 @@ namespace Guardian
             var value = argument.Value;
             if (value == null)
             {
-                var reason = Reason.ComposeReason("Provided string should not be null", message);
+                var reason = Reason.Compose("Provided string should not be null", message);
 
                 throw new ArgumentNullException(argument.Name, reason.ToString());
             }
 
             if (value.Trim() == string.Empty)
             {
-                var reason = Reason.ComposeReason("Provided string should not be empty or white space", message);
+                var reason = Reason.Compose("Provided string should not be empty or white space", message);
 
                 throw new ArgumentOutOfRangeException(argument.Name, value, reason.ToString());
             }
@@ -116,7 +116,7 @@ namespace Guardian
         ////         if (value.CompareTo(comparand) > -1)
         ////         {
         ////             var generic = string.Format("Provided parameter does not fit to acceptable range: '{0}'<'{1}'", value, comparand);
-        ////             var reason = Reason.ComposeReason(generic, message);
+        ////             var reason = Reason.Compose(generic, message);
         ////             
         ////             throw new ArgumentOutOfRangeException(argument.Name, value, reason.ToString());
         ////         }
@@ -133,7 +133,7 @@ namespace Guardian
         ////         if (value.CompareTo(comparand) > 0)
         ////         {
         ////             var generic = string.Format("Provided parameter does not fit to acceptable range: '{0}'≤'{1}'", value, comparand);
-        ////             var reason = Reason.ComposeReason(generic, message).ToString();
+        ////             var reason = Reason.Compose(generic, message).ToString();
         ////             
         ////             Details.GuardArgumentFailure(ThisType, reason);
         //// 
@@ -152,7 +152,7 @@ namespace Guardian
         ////         if (value.CompareTo(comparand) < 0)
         ////         {
         ////             var generic = string.Format("Provided parameter does not fit to acceptable range: '{0}'>'{1}'", value, comparand);
-        ////             var reason = Reason.ComposeReason(generic, message);
+        ////             var reason = Reason.Compose(generic, message);
         ////             
         ////             throw new ArgumentOutOfRangeException(argument.Name, value, reason.ToString());
         ////         }
@@ -169,7 +169,7 @@ namespace Guardian
         ////         if (value.CompareTo(comparand) < 1)
         ////         {
         ////             var generic = string.Format("Provided parameter does not fit to acceptable range: '{0}'≥'{1}'", value, comparand);
-        ////             var reason = Reason.ComposeReason(generic, message);
+        ////             var reason = Reason.Compose(generic, message);
         //// 
         ////             throw new ArgumentOutOfRangeException(argument.Name, value, reason.ToString());
         ////         }

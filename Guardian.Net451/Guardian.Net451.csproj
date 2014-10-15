@@ -4,18 +4,17 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{7A785235-9D27-4DC4-BF43-D866459F1086}</ProjectGuid>
+    <ProjectGuid>{AF38F3C6-BCAB-4E33-8416-A0D55880BD96}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Guardian.Tests</RootNamespace>
-    <AssemblyName>Guardian.Tests</AssemblyName>
+    <RootNamespace>Guardian</RootNamespace>
+    <AssemblyName>Guardian</AssemblyName>
     <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <SccProjectName>SAK</SccProjectName>
     <SccLocalPath>SAK</SccLocalPath>
     <SccAuxPath>SAK</SccAuxPath>
     <SccProvider>SAK</SccProvider>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -27,7 +26,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
+    <DebugType>none</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
@@ -35,12 +34,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="nunit.framework">
-      <HintPath>..\packages\NUnit.2.6.3\lib\nunit.framework.dll</HintPath>
-    </Reference>
-    <Reference Include="Shouldly">
-      <HintPath>..\packages\Shouldly.2.2.0\lib\net40\Shouldly.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -49,26 +42,47 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Compile Include="ArgumentFixture.cs" />
-    <Compile Include="DebugFixture.cs" />
-    <Compile Include="GuardBaseFixture.cs" />
-    <Compile Include="GuardFixture.cs" />
-    <Compile Include="HasFixture.cs" />
-    <Compile Include="IsFixture.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ReasonFixture.cs" />
-    <Compile Include="Helpers\TestData.cs" />
-    <Compile Include="Helpers\TestUtility.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Guardian.Net451\Guardian.Net451.csproj">
-      <Project>{af38f3c6-bcab-4e33-8416-a0d55880bd96}</Project>
-      <Name>Guardian.Net451</Name>
-    </ProjectReference>
+    <Compile Include="..\Guardian\Argument.cs">
+      <Link>Argument.cs</Link>
+    </Compile>
+    <Compile Include="..\Guardian\Assert.cs">
+      <Link>Assert.cs</Link>
+    </Compile>
+    <Compile Include="..\Guardian\Debug.cs">
+      <Link>Debug.cs</Link>
+    </Compile>
+    <Compile Include="..\Guardian\Details.cs">
+      <Link>Details.cs</Link>
+    </Compile>
+    <Compile Include="..\Guardian\Guard.cs">
+      <Link>Guard.cs</Link>
+    </Compile>
+    <Compile Include="..\Guardian\GuardBase.cs">
+      <Link>GuardBase.cs</Link>
+    </Compile>
+    <Compile Include="..\Guardian\GuardBaseT.cs">
+      <Link>GuardBaseT.cs</Link>
+    </Compile>
+    <Compile Include="..\Guardian\Has.cs">
+      <Link>Has.cs</Link>
+    </Compile>
+    <Compile Include="..\Guardian\Is.cs">
+      <Link>Is.cs</Link>
+    </Compile>
+    <Compile Include="..\Guardian\IsArgument.cs">
+      <Link>IsArgument.cs</Link>
+    </Compile>
+    <Compile Include="..\Guardian\IsAssert.cs">
+      <Link>IsAssert.cs</Link>
+    </Compile>
+    <Compile Include="..\Guardian\Properties\AssemblyInfo.cs">
+      <Link>Properties\AssemblyInfo.cs</Link>
+    </Compile>
+    <Compile Include="..\Guardian\Reason.cs">
+      <Link>Reason.cs</Link>
+    </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
