@@ -48,10 +48,12 @@ namespace Guardian.Tests.Helpers
 
         public static Argument<T> CreateArgument<T>(Expression<Func<T>> expression)
         {
+            var memberGetter = expression.Compile();
             var memberExpression = (MemberExpression)expression.Body;
-            var memberHashCode = memberExpression.Member.GetHashCode();
-
-            return new Argument<T>(memberHashCode, expression, memberExpression);
+            var member = memberExpression.Member;
+            var memberHashCode = member.GetHashCode();
+            
+            return new Argument<T>(memberHashCode, memberGetter, member);
         }
     }
 }

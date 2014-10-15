@@ -44,17 +44,17 @@ namespace Guardian
     [DebuggerNonUserCode]
     public abstract class GuardBase<T> : GuardBase
     {
-        private readonly Lazy<Func<T>> lambda;
+        private readonly Func<T> getter;
 
-        internal GuardBase(int hashCode, Lazy<Func<T>> lambda)
+        internal GuardBase(int hashCode, Func<T> getter)
             : base(hashCode)
         {
-            this.lambda = lambda;
+            this.getter = getter;
         }
 
         public T Value
         {
-            get { return lambda.Value(); }
+            get { return getter(); }
         }
     }
 }

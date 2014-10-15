@@ -45,10 +45,10 @@ namespace Guardian
     [DebuggerNonUserCode]
     internal static class Reason
     {
-        public static StringBuilder ComposeReason(string genericMessage, string extendedMessage)
+        public static StringBuilder Compose(string genericMessage, string extendedMessage)
         {
             var builder = new StringBuilder();
-            if (!string.IsNullOrWhiteSpace(extendedMessage))
+            if (extendedMessage != null && extendedMessage.Trim() != string.Empty)
             {
                 builder.AppendFormat("{0}.", extendedMessage);
                 builder.AppendLine();
@@ -56,11 +56,6 @@ namespace Guardian
             builder.AppendFormat("{0}.", genericMessage);
 
             return builder;
-        }
-
-        public static void FailedIn(Type evidence, string reason)
-        {
-            
         }
     }
 }

@@ -160,7 +160,9 @@ namespace Guardian
                     return result as Argument<T>;
                 }
 
-                result = new Argument<T>(memberHashCode, expression, memberExpression);
+                var memberGetter = expression.Compile();
+
+                result = new Argument<T>(memberHashCode, memberGetter, member);
                 
                 Arguments.Add(memberHashCode, result);
 
