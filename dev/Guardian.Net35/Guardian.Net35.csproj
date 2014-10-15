@@ -41,9 +41,7 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Properties\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Compile Include="..\Guardian\Argument.cs">
       <Link>Argument.cs</Link>
@@ -77,6 +75,9 @@
     </Compile>
     <Compile Include="..\Guardian\IsAssert.cs">
       <Link>IsAssert.cs</Link>
+    </Compile>
+    <Compile Include="..\Guardian\Properties\AssemblyInfo.cs">
+      <Link>Properties\AssemblyInfo.cs</Link>
     </Compile>
     <Compile Include="..\Guardian\Reason.cs">
       <Link>Reason.cs</Link>
