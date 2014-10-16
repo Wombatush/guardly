@@ -56,7 +56,7 @@ namespace Guardly
         }
 
         [DebuggerHidden]
-        public static void Argument<T>(Expression<Func<T>> expression, params IsArgument<T>[] assessments)
+        public static void Argument<T>(Expression<Func<T>> expression, params ArgumentAssessment<T>[] assessments)
         {
             if (assessments == null)
             {
@@ -80,7 +80,7 @@ namespace Guardly
             }
         }
 
-        public static void Argument<T>(Expression<Func<T>> expression, IsArgument<T> assessment, string message)
+        public static void Argument<T>(Expression<Func<T>> expression, ArgumentAssessment<T> assessment, string message)
         {
             if (assessment == null)
             {
