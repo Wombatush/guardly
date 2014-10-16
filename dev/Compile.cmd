@@ -7,7 +7,7 @@ POPD
 
 IF NOT EXIST %NUGET_EXE% GOTO:EOF_NO_NUGET
 
-FOR /F %%I IN ('CD') DO (SET NUSPEC_SRC=%%I\Guardian.nuspec)
+FOR /F %%I IN ('CD') DO (SET NUSPEC_SRC=%%I\Guardly.nuspec)
 
 IF NOT EXIST %NUSPEC_SRC% GOTO:EOF_NO_NUSPEC
 
@@ -35,22 +35,22 @@ CALL:REBUILD Net40 %%1
 CALL:REBUILD Net45 %%1
 CALL:REBUILD Net451 %%1
 
-CALL %NUGET_EXE% pack %NUSPEC_DST%\Guardian.nuspec -noninteractive -version %1
+CALL %NUGET_EXE% pack %NUSPEC_DST%\Guardly.nuspec -noninteractive -version %1
 
-REM MOVE /Y Guardian.%1.nupkg S:\NuGet\Repo
+REM MOVE /Y Guardly.%1.nupkg S:\NuGet\Repo
 
 REM IF EXIST nugetpack_tmp RMDIR /S /Q nugetpack_tmp
 
 GOTO:EOF
 
 :REBUILD
-PUSHD "Guardian.%1"
+PUSHD "Guardly.%1"
 FOR /F %%I IN ('CD') DO (SET PROJECT_BASE=%%I)
 IF EXIST bin RMDIR /S /Q bin
 IF EXIST obj RMDIR /S /Q obj
-%MSBUILDEXE% /p:Configuration=Debug;VersionAssembly=%2 "Guardian.%1.csproj" 
+%MSBUILDEXE% /p:Configuration=Debug;VersionAssembly=%2 "Guardly.%1.csproj" 
 IF %ERRORLEVEL% NEQ 0 GOTO:BUILD_FAILED GOTO:EOF
-%MSBUILDEXE% /p:Configuration=Release;VersionAssembly=%2 "Guardian.%1.csproj" 
+%MSBUILDEXE% /p:Configuration=Release;VersionAssembly=%2 "Guardly.%1.csproj" 
 IF %ERRORLEVEL% NEQ 0 GOTO:BUILD_FAILED GOTO:EOF
 SET LIB_SRC=%PROJECT_BASE%\bin\Release\*
 XCOPY "%LIB_SRC%" "%LIB_DST%\%1" /q /i 
