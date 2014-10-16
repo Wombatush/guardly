@@ -45,12 +45,9 @@ using System.Runtime.InteropServices;
 // associated with an assembly.
 [assembly: AssemblyTitle("Guardly")]
 [assembly: AssemblyDescription("Guardly defensive programming framework")]
-[assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Evgeny Nazarov")]
 [assembly: AssemblyProduct("Guardly")]
 [assembly: AssemblyCopyright("Copyright © 2014 Evgeny Nazarov")]
-[assembly: AssemblyTrademark("")]
-[assembly: AssemblyCulture("")]
 
 // Setting ComVisible to false makes the types in this assembly not visible 
 // to COM components.  If you need to access a type in this assembly from 
