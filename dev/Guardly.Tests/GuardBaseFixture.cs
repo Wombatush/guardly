@@ -39,8 +39,144 @@ using NUnit.Framework;
 
 namespace Guardly.Tests
 {
+    using System;
+    using System.Collections.Generic;
+    using Moq;
+    using Shouldly;
+
     [TestFixture]
     internal sealed class GuardBaseFixture
     {
+        private const int HashCodeOne = 123456;
+        private const int HashCodeTwo = 654321;
+
+        [Test]
+        [TestCase(HashCodeOne)]
+        [TestCase(HashCodeTwo)]
+        public void ShouldGetHashCode(int hashCode)
+        {
+            // Given
+            var mock = new  Mock<GuardBase>(hashCode);
+            var instance = mock.Object;
+
+            // When
+            var result = instance.GetHashCode();
+
+            // Then
+            result.ShouldBe(hashCode);
+        }
+
+        [Test]
+        public void ShouldNotBeEqualToNotGuardBase()
+        {
+            // Given
+            var mock = new Mock<GuardBase>(HashCodeOne);
+            var instance = mock.Object;
+            var other = new object();
+
+            // When
+            var result = instance.Equals(other);
+
+            // Then
+            result.ShouldBe(false);
+        }
+
+        [Test]
+        public void ShouldNotBeEqualToNull()
+        {
+            // Given
+            var mock = new Mock<GuardBase>(HashCodeOne);
+            var instance = mock.Object;
+
+            // When
+            var result = instance.Equals(null);
+
+            // Then
+            result.ShouldBe(false);
+        }
+
+        [Test]
+        public void ShouldBeEqualBySameHashCode()
+        {
+            // Given
+            var mockOne = new Mock<GuardBase>(HashCodeOne);
+            var mockTwo = new Mock<GuardBase>(HashCodeOne);
+            var instanceOne = mockOne.Object;
+            var instanceTwo = mockTwo.Object;
+
+            // When
+            var result = instanceOne.Equals(instanceTwo);
+
+            // Then
+            result.ShouldBe(true);
+        }
+
+        [Test]
+        public void ShouldBeEqualToSelf()
+        {
+            // Given
+            var mock = new Mock<GuardBase>(HashCodeOne);
+            var instance = mock.Object;
+            
+            // When
+            var result = instance.Equals(instance);
+
+            // Then
+            result.ShouldBe(true);
+        }
+
+        [Test]
+        public void ShouldNotBeEqualWheDifferentHashCode()
+        {
+            // Given
+            var mockOne = new Mock<GuardBase>(HashCodeOne);
+            var mockTwo = new Mock<GuardBase>(HashCodeTwo);
+            var instanceOne = mockOne.Object;
+            var instanceTwo = mockTwo.Object;
+
+            // When
+            var result = instanceOne.Equals(instanceTwo);
+
+            // Then
+            result.ShouldBe(false);
+        }
+
+        [Test]
+        public void ShouldNotBeEqualWhenDifferentTypes()
+        {
+            // Given
+            var mockOne = new Mock<GuardBase<float>>(HashCodeOne, new Func<float>(() => default(float)));
+            var mockTwo = new Mock<GuardBase<double>>(HashCodeOne, new Func<double>(() => default(double)));
+            var instanceOne = mockOne.Object;
+            var instanceTwo = mockTwo.Object;
+
+            // When
+            var result = instanceOne.Equals(instanceTwo);
+
+            // Then
+            result.ShouldBe(false);
+        }
+
+        [Test]
+        [TestCase(0)]
+        [TestCase(1)]
+        [TestCase(2)]
+        public void ShouldUseProvidedGetterToRetrieveValue(int count)
+        {
+            // Given
+            var stub = new List<int>();
+            var invocations = 0;
+            var mock = new Mock<GuardBase<int>>(HashCodeOne, new Func<int>(() => ++invocations));
+            var instance = mock.Object;
+            
+            // When
+            for (var i = 0; i < count; i++)
+            {
+                stub.Add(instance.Value);
+            }
+            
+            // Then
+            invocations.ShouldBe(count);
+        }
     }
 }
