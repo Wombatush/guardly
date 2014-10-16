@@ -41,6 +41,10 @@ namespace Guardly
     using System;
     using System.Reflection;
 
+    /// <summary>
+    /// Argument wrapper.
+    /// </summary>
+    /// <typeparam name="T">Argument type.</typeparam>
     public sealed class Argument<T> : GuardBase<T>
     {
         private readonly MemberInfo member;
@@ -51,6 +55,9 @@ namespace Guardly
             this.member = member;
         }
 
+        /// <summary>
+        /// Retrieves argument name.
+        /// </summary>
         public string Name
         {
             get { return member.Name; }

@@ -41,6 +41,9 @@ namespace Guardly
     using System;
     using System.Diagnostics;
 
+    /// <summary>
+    /// Base class for guarded value wrappers.
+    /// </summary>
     [DebuggerNonUserCode]
     public abstract class GuardBase : IEquatable<GuardBase>
     {
@@ -51,6 +54,11 @@ namespace Guardly
             this.hashCode = hashCode;
         }
 
+        /// <summary>
+        /// Indicates whether the current object is equal to another object of the same type.
+        /// </summary>
+        /// <param name="other">An object to compare with this object.</param>
+        /// <returns>true if the current object is equal to the <paramref name="other"/> parameter; otherwise, false.</returns>
         public bool Equals(GuardBase other)
         {
             if (ReferenceEquals(other, null))
@@ -71,11 +79,20 @@ namespace Guardly
             return GetHashCode() == other.GetHashCode();
         }
 
+        /// <summary>
+        /// Determines whether the specified <see cref="T:System.Object"/> is equal to the current <see cref="T:System.Object"/>.
+        /// </summary>
+        /// <param name="obj">The <see cref="T:System.Object"/> to compare with the current <see cref="T:System.Object"/>. </param>
+        /// <returns>true if the specified <see cref="T:System.Object"/> is equal to the current <see cref="T:System.Object"/>; otherwise, false.</returns>
         public sealed override bool Equals(object obj)
         {
             return obj is GuardBase && Equals(obj as GuardBase);
         }
 
+        /// <summary>
+        /// Serves as a hash function for a particular type. 
+        /// </summary>
+        /// <returns>A hash code for the current <see cref="T:System.Object"/>.</returns>
         public sealed override int GetHashCode()
         {
             return hashCode;

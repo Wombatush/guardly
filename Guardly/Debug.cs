@@ -42,15 +42,31 @@ namespace Guardly
     using System.Diagnostics;
     using System.Linq.Expressions;
 
+    /// <summary>
+    /// Guard represents the ways to verify argument preconditions and asserts for debug configuration only.
+    /// </summary>
     [DebuggerNonUserCode]
     public static class Debug
     {
+        /// <summary>
+        /// Performs arguments assessments in order of appearance.
+        /// </summary>
+        /// <typeparam name="T">Argument type.</typeparam>
+        /// <param name="expression">Argument expression.</param>
+        /// <param name="assessments">Argument assessments to perform.</param>
         [Conditional("DEBUG")]
         public static void Argument<T>(Expression<Func<T>> expression, params ArgumentAssessment<T>[] assessments)
         {
             Guard.Argument(expression, assessments);
         }
 
+        /// <summary>
+        /// Performs single arguments assessment and provides particular message is assessment fails.
+        /// </summary>
+        /// <typeparam name="T">Argument type.</typeparam>
+        /// <param name="expression">Argument expression.</param>
+        /// <param name="assessment">Argument assessment to perform.</param>
+        /// <param name="message">Message to be displayed if assessment fails.</param>
         [Conditional("DEBUG")]
         public static void Argument<T>(Expression<Func<T>> expression, ArgumentAssessment<T> assessment, string message)
         {

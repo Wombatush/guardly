@@ -43,6 +43,9 @@ namespace Guardly
     using System.Diagnostics;
     using System.Linq.Expressions;
 
+    /// <summary>
+    /// Guard represents the ways to verify argument preconditions and asserts.
+    /// </summary>
     [DebuggerNonUserCode]
     public static class Guard
     {
@@ -55,6 +58,12 @@ namespace Guardly
             //// Asserts = new Dictionary<int, GuardBase>();
         }
 
+        /// <summary>
+        /// Performs arguments assessments in order of appearance.
+        /// </summary>
+        /// <typeparam name="T">Argument type.</typeparam>
+        /// <param name="expression">Argument expression.</param>
+        /// <param name="assessments">Argument assessments to perform.</param>
         [DebuggerHidden]
         public static void Argument<T>(Expression<Func<T>> expression, params ArgumentAssessment<T>[] assessments)
         {
@@ -80,6 +89,13 @@ namespace Guardly
             }
         }
 
+        /// <summary>
+        /// Performs single arguments assessment and provides particular message is assessment fails.
+        /// </summary>
+        /// <typeparam name="T">Argument type.</typeparam>
+        /// <param name="expression">Argument expression.</param>
+        /// <param name="assessment">Argument assessment to perform.</param>
+        /// <param name="message">Message to be displayed if assessment fails.</param>
         public static void Argument<T>(Expression<Func<T>> expression, ArgumentAssessment<T> assessment, string message)
         {
             if (assessment == null)
