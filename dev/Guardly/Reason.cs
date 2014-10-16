@@ -38,7 +38,6 @@
 
 namespace Guardly
 {
-    using System;
     using System.Diagnostics;
     using System.Text;
 

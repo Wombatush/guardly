@@ -1,4 +1,17 @@
-﻿//     the above copyright notice, this list of conditions 
+﻿// Copyright (c) 2014. Evgeny Nazarov
+// http://guardly.codeplex.com/
+// All rights reserved.
+// 
+// Redistribution and use in source and binary forms, 
+// with or without modification, are permitted provided 
+// that the following conditions are met:
+// 
+//     * Redistributions of source code must retain the 
+//     above copyright notice, this list of conditions and 
+//     the following disclaimer.
+//     
+//     * Redistributions in binary form must reproduce 
+//     the above copyright notice, this list of conditions 
 //     and the following disclaimer in the documentation 
 //     and/or other materials provided with the distribution.
 //     
@@ -26,11 +39,9 @@
 namespace Guardly.Tests.Helpers
 {
     using System;
-    using System.Diagnostics.CodeAnalysis;
     using System.Linq.Expressions;
     using System.Text;
 
-    [ExcludeFromCodeCoverage]
     internal static class TestUtility
     {
         public static string GetExpectedArgumentMessage(string extendedMessage)
