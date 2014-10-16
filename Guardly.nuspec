@@ -1,0 +1,14 @@
+﻿<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>Guardly</id>
+    <version>0.0.0</version>
+    <authors>Evgeny Nazarov</authors>
+    <owners>Evgeny Nazarov</owners>
+    <projectUrl>http://guardly.codeplex.com/</projectUrl>
+    <iconUrl>https://www.codeplex.com/</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Guardly is a defensive programming framework</description>
+    <tags>Guardly Design Contract Assert Assertion Defence Framework</tags>
+  </metadata>
+</package>

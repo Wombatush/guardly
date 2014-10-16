@@ -1,0 +1,90 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30501.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Guardly.Net40", "Guardly.Net40\Guardly.Net40.csproj", "{38EEBBF3-EDAA-42E8-9F77-6FE784C0AEDE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Guardly.Tests", "Guardly.Tests\Guardly.Tests.csproj", "{7A785235-9D27-4DC4-BF43-D866459F1086}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{408F3710-8D73-417B-ACD7-8E6F52643B58}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Guardly.Net45", "Guardly.Net45\Guardly.Net45.csproj", "{42D7BEB6-B634-4C00-8D5E-3761CF6AC007}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Guardly.Net35", "Guardly.Net35\Guardly.Net35.csproj", "{DF3658D7-4B7E-4978-80D9-BB075B1243A3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Guardly.Net451", "Guardly.Net451\Guardly.Net451.csproj", "{AF38F3C6-BCAB-4E33-8416-A0D55880BD96}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{76310320-0C46-4028-9875-76C6D8B1F608}"
+	ProjectSection(SolutionItems) = preProject
+		Guardly.nuspec = Guardly.nuspec
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".build", ".build", "{1B0003D2-127A-45A4-9D51-551424506515}"
+	ProjectSection(SolutionItems) = preProject
+		Compile.cmd = Compile.cmd
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".doc", ".doc", "{D724832E-5455-495F-A0DD-55B0A320F4AE}"
+	ProjectSection(SolutionItems) = preProject
+		Changelog.txt = Changelog.txt
+		License.txt = License.txt
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 6
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://tfs.codeplex.com/tfs/tfs28
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = Guardly.Net40\\Guardly.Net40.csproj
+		SccProjectName1 = Guardly.Net40
+		SccLocalPath1 = Guardly.Net40
+		SccProjectUniqueName2 = Guardly.Tests\\Guardly.Tests.csproj
+		SccProjectTopLevelParentUniqueName2 = Guardly.sln
+		SccProjectName2 = Guardly.Tests
+		SccLocalPath2 = Guardly.Tests
+		SccProjectUniqueName3 = Guardly.Net45\\Guardly.Net45.csproj
+		SccProjectName3 = Guardly.Net45
+		SccLocalPath3 = Guardly.Net45
+		SccProjectUniqueName4 = Guardly.Net35\\Guardly.Net35.csproj
+		SccProjectName4 = Guardly.Net35
+		SccLocalPath4 = Guardly.Net35
+		SccProjectUniqueName5 = Guardly.Net451\\Guardly.Net451.csproj
+		SccProjectName5 = Guardly.Net451
+		SccLocalPath5 = Guardly.Net451
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{38EEBBF3-EDAA-42E8-9F77-6FE784C0AEDE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{38EEBBF3-EDAA-42E8-9F77-6FE784C0AEDE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{38EEBBF3-EDAA-42E8-9F77-6FE784C0AEDE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{38EEBBF3-EDAA-42E8-9F77-6FE784C0AEDE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7A785235-9D27-4DC4-BF43-D866459F1086}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7A785235-9D27-4DC4-BF43-D866459F1086}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7A785235-9D27-4DC4-BF43-D866459F1086}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7A785235-9D27-4DC4-BF43-D866459F1086}.Release|Any CPU.Build.0 = Release|Any CPU
+		{42D7BEB6-B634-4C00-8D5E-3761CF6AC007}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{42D7BEB6-B634-4C00-8D5E-3761CF6AC007}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{42D7BEB6-B634-4C00-8D5E-3761CF6AC007}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{42D7BEB6-B634-4C00-8D5E-3761CF6AC007}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DF3658D7-4B7E-4978-80D9-BB075B1243A3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DF3658D7-4B7E-4978-80D9-BB075B1243A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DF3658D7-4B7E-4978-80D9-BB075B1243A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DF3658D7-4B7E-4978-80D9-BB075B1243A3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AF38F3C6-BCAB-4E33-8416-A0D55880BD96}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AF38F3C6-BCAB-4E33-8416-A0D55880BD96}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AF38F3C6-BCAB-4E33-8416-A0D55880BD96}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AF38F3C6-BCAB-4E33-8416-A0D55880BD96}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{7A785235-9D27-4DC4-BF43-D866459F1086} = {408F3710-8D73-417B-ACD7-8E6F52643B58}
+	EndGlobalSection
+EndGlobal
