@@ -41,7 +41,7 @@ namespace Guardly
     using System.Diagnostics;
 
     /// <summary>
-    /// Represents a class whose assessments start with "has".
+    /// Represents a class whose assessments start with "Has".
     /// </summary>
     [DebuggerNonUserCode]
     public static class Has

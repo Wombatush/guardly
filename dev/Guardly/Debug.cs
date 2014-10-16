@@ -61,7 +61,7 @@ namespace Guardly
         }
 
         /// <summary>
-        /// Performs single arguments assessment and provides particular message is assessment fails.
+        /// Performs single argument assessment and provides particular message is assessment fails.
         /// </summary>
         /// <typeparam name="T">Argument type.</typeparam>
         /// <param name="expression">Argument expression.</param>
