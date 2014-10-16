@@ -71,12 +71,12 @@ namespace Guardly
             return GetHashCode() == other.GetHashCode();
         }
 
-        public override bool Equals(object obj)
+        public sealed override bool Equals(object obj)
         {
             return obj is GuardBase && Equals(obj as GuardBase);
         }
 
-        public override int GetHashCode()
+        public sealed override int GetHashCode()
         {
             return hashCode;
         }

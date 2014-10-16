@@ -73,6 +73,7 @@ using System.Runtime.InteropServices;
 #if DEBUG
 
 [assembly: InternalsVisibleTo("Guardly.Tests")]
+[assembly: InternalsVisibleTo("DynamicProxyGenAssembly2")]
 
 #else
 
