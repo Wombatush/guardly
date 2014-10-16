@@ -106,7 +106,7 @@ namespace Guardly
             }
         }
         
-        //// public static IsArgument<T> LessThan<T>(Func<T> expression)
+        //// public static ArgumentAssessment<T> LessThan<T>(Func<T> expression)
         ////     where T : IComparable<T>
         //// {
         ////     return (argument, message) =>
@@ -123,7 +123,7 @@ namespace Guardly
         ////     };
         //// }
         //// 
-        //// public static IsArgument<T> LessThanOrEqualTo<T>(Func<T> expression)
+        //// public static ArgumentAssessment<T> LessThanOrEqualTo<T>(Func<T> expression)
         ////     where T : IComparable<T>
         //// {
         ////     return (argument, message) =>
@@ -142,7 +142,7 @@ namespace Guardly
         ////     };
         //// }
         //// 
-        //// public static IsArgument<T> GreaterThan<T>(Func<T> expression)
+        //// public static ArgumentAssessment<T> GreaterThan<T>(Func<T> expression)
         ////     where T : IComparable<T>
         //// {
         ////     return (argument, message) =>
@@ -159,7 +159,7 @@ namespace Guardly
         ////     };
         //// }
         //// 
-        //// public static IsArgument<T> GreaterThanOrEqualTo<T>(Func<T> expression)
+        //// public static ArgumentAssessment<T> GreaterThanOrEqualTo<T>(Func<T> expression)
         ////     where T : IComparable<T>
         //// {
         ////     return (argument, message) =>
@@ -176,12 +176,12 @@ namespace Guardly
         ////     };
         //// }
         //// 
-        //// public static IsArgument<T> In<T>(Func<IEnumerable<T>> expression)
+        //// public static ArgumentAssessment<T> In<T>(Func<IEnumerable<T>> expression)
         //// {
         ////     throw new NotImplementedException();
         //// }
         //// 
-        //// public static IsArgument<T> NotIn<T>(Func<IEnumerable<T>> expression)
+        //// public static ArgumentAssessment<T> NotIn<T>(Func<IEnumerable<T>> expression)
         //// {
         ////     throw new NotImplementedException();
         //// }

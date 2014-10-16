@@ -72,7 +72,7 @@ namespace Guardly
             throw new NotImplementedException();
         }
 
-        public static IsArgument<IEnumerable<T>> NoIntersectionWith<T>(Func<IEnumerable<T>> expression)
+        public static ArgumentAssessment<IEnumerable<T>> NoIntersectionWith<T>(Func<IEnumerable<T>> expression)
         {
             return (argument, message) =>
             {

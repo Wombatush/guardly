@@ -46,13 +46,13 @@ namespace Guardly
     public static class Debug
     {
         [Conditional("DEBUG")]
-        public static void Argument<T>(Expression<Func<T>> expression, params IsArgument<T>[] assessments)
+        public static void Argument<T>(Expression<Func<T>> expression, params ArgumentAssessment<T>[] assessments)
         {
             Guard.Argument(expression, assessments);
         }
 
         [Conditional("DEBUG")]
-        public static void Argument<T>(Expression<Func<T>> expression, IsArgument<T> assessment, string message)
+        public static void Argument<T>(Expression<Func<T>> expression, ArgumentAssessment<T> assessment, string message)
         {
             Guard.Argument(expression, assessment, message);
         }

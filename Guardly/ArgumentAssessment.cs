@@ -1,4 +1,4 @@
-﻿// Copyright (c) 2014. Evgeny Nazarov
+// Copyright (c) 2014. Evgeny Nazarov
 // http://guardly.codeplex.com/
 // All rights reserved.
 // 
@@ -38,12 +38,12 @@
 
 namespace Guardly
 {
-    //// /// <summary>
-    //// /// This delegate type is used for assertion assessments by <see cref="Guardly.Guard"/>.
-    //// /// </summary>
-    //// /// <typeparam name="T">An asserts's value type.</typeparam>
-    //// /// <param name="assert">Assertion expression wrapper.</param>
-    //// /// <param name="message">Additional assertion message that should be used in case of assessment failure.</param>
-    //// /// <remarks>Passed <paramref name="assert"/> is never null, however <paramref name="message"/> can be either null or not null.</remarks>
-    //// public delegate void IsAssert<T>(Assert<T> assert, string message);
+    /// <summary>
+    /// This delegate type is used for argument assessments by <see cref="Guardly.Guard"/>.
+    /// </summary>
+    /// <typeparam name="T">An argument's value type.</typeparam>
+    /// <param name="argument">Argument wrapper.</param>
+    /// <param name="message">Additional assertion message that should be used in case of assessment failure.</param>
+    /// <remarks>Passed <paramref name="argument"/> is never null, however <paramref name="message"/> can be either null or not null.</remarks>
+    public delegate void ArgumentAssessment<T>(Argument<T> argument, string message);
 }

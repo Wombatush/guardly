@@ -72,10 +72,10 @@
     <Compile Include="..\Guardly\Is.cs">
       <Link>Is.cs</Link>
     </Compile>
-    <Compile Include="..\Guardly\IsArgument.cs">
+    <Compile Include="..\Guardly\ArgumentAssessment.cs">
       <Link>IsArgument.cs</Link>
     </Compile>
-    <Compile Include="..\Guardly\IsAssert.cs">
+    <Compile Include="..\Guardly\AssertAssessment.cs">
       <Link>IsAssert.cs</Link>
     </Compile>
     <Compile Include="..\Guardly\Properties\AssemblyInfo.cs">
