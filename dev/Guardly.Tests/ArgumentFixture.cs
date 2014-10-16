@@ -43,7 +43,7 @@ namespace Guardly.Tests
     using Shouldly;
 
     [TestFixture]
-    internal class ArgumentFixture
+    internal sealed class ArgumentFixture
     {
         [Test, TestCaseSource(typeof (TestData), "GetExtendedMessages")]
         public void ShouldCreateWithMember(string member)

@@ -44,8 +44,6 @@ namespace Guardly
     [DebuggerNonUserCode]
     public static class Is
     {
-        private static readonly Type ThisType = typeof(Is);
-        
         #region Arguments
 
         public static void NotNull<T>(Argument<T> argument, string message)
