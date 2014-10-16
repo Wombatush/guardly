@@ -38,16 +38,16 @@
 
 namespace Guardly
 {
-    using System;
-    using System.Diagnostics;
-
-    [DebuggerNonUserCode]
-    public static class Details
-    {
-        public static void GuardArgumentFailure(Type evidence, string reason)
-        {
-            
-           
-        }
-    }
+    //// using System;
+    //// using System.Diagnostics;
+    //// 
+    //// [DebuggerNonUserCode]
+    //// public static class Details
+    //// {
+    ////     public static void GuardArgumentFailure(Type evidence, string reason)
+    ////     {
+    ////         
+    ////        
+    ////     }
+    //// }
 }

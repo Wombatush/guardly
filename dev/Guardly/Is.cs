@@ -41,11 +41,21 @@ namespace Guardly
     using System;
     using System.Diagnostics;
 
+    /// <summary>
+    /// Represents a class whose assessments start with "Is".
+    /// </summary>
     [DebuggerNonUserCode]
     public static class Is
     {
         #region Arguments
 
+        /// <summary>
+        /// Performs not-null assessment for the argument of reference type.
+        /// </summary>
+        /// <typeparam name="T">Argument type.</typeparam>
+        /// <param name="argument">Argument wrapper.</param>
+        /// <param name="message">Custom message to be displayed when assessment fails.</param>
+        /// <exception cref="ArgumentNullException">Argument value is null.</exception>
         public static void NotNull<T>(Argument<T> argument, string message)
             where T : class 
         {
@@ -68,6 +78,13 @@ namespace Guardly
         ////     }
         //// }
 
+        /// <summary>
+        /// Performs not-null and not-empty assessment for the argument of string type.
+        /// </summary>
+        /// <param name="argument">Argument wrapper.</param>
+        /// <param name="message">Custom message to be displayed when assessment fails.</param>
+        /// <exception cref="ArgumentNullException">Argument string is null.</exception>
+        /// <exception cref="ArgumentOutOfRangeException">Argument string is empty.</exception>
         public static void NotNullOrEmpty(Argument<string> argument, string message)
         {
             var value = argument.Value;
@@ -86,6 +103,13 @@ namespace Guardly
             }
         }
 
+        /// <summary>
+        /// Performs not-null, not-empty and not-white space assessment for the argument of string type.
+        /// </summary>
+        /// <param name="argument">Argument wrapper.</param>
+        /// <param name="message">Custom message to be displayed when assessment fails.</param>
+        /// <exception cref="ArgumentNullException">Argument string is null.</exception>
+        /// <exception cref="ArgumentOutOfRangeException">Argument string is empty or white space.</exception>
         public static void NotNullOrWhiteSpace(Argument<string> argument, string message)
         {
             var value = argument.Value;

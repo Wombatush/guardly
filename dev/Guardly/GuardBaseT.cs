@@ -41,6 +41,10 @@ namespace Guardly
     using System;
     using System.Diagnostics;
 
+    /// <summary>
+    /// Base class for guarded value wrappers.
+    /// </summary>
+    /// <typeparam name="T">Guarded value type.</typeparam>
     [DebuggerNonUserCode]
     public abstract class GuardBase<T> : GuardBase
     {
@@ -52,6 +56,9 @@ namespace Guardly
             this.getter = getter;
         }
 
+        /// <summary>
+        /// Retrieves current value.
+        /// </summary>
         public T Value
         {
             get { return getter(); }
