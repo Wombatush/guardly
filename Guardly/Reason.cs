@@ -44,7 +44,7 @@ namespace Guardly
     [DebuggerNonUserCode]
     internal static class Reason
     {
-        public static StringBuilder Compose(string genericMessage, string extendedMessage)
+        public static StringBuilder Compose(string baseMessage, string extendedMessage)
         {
             var builder = new StringBuilder();
             if (extendedMessage != null && extendedMessage.Trim() != string.Empty)
@@ -52,7 +52,7 @@ namespace Guardly
                 builder.AppendFormat("{0}.", extendedMessage);
                 builder.AppendLine();
             }
-            builder.AppendFormat("{0}.", genericMessage);
+            builder.AppendFormat("{0}.", baseMessage);
 
             return builder;
         }

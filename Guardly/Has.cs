@@ -38,56 +38,53 @@
 
 namespace Guardly
 {
-    using System;
-    using System.Collections.Generic;
     using System.Diagnostics;
-    using System.Linq;
 
     [DebuggerNonUserCode]
     public static class Has
     {
-        private static readonly Type ThisType = typeof (Has);
-
-        #region Arguments
-
-        public static void NoNulls<T>(Argument<T> argument, string message)
-            where T : IEnumerable<object>
-        {
-            foreach (var item in argument.Value)
-            {
-                if (ReferenceEquals(item, null))
-                {
-                    throw new ArgumentOutOfRangeException();
-                }
-            }
-        }
-
-        public static void NoDuplicates<T>(Argument<T> argument, string message)
-            where T : IEnumerable<object>
-        {
-            if (argument.Value.Count() != argument.Value.Distinct().Count())
-            {
-            }
-
-            throw new NotImplementedException();
-        }
-
-        public static ArgumentAssessment<IEnumerable<T>> NoIntersectionWith<T>(Func<IEnumerable<T>> expression)
-        {
-            return (argument, message) =>
-            {
-                var value = argument.Value;
-                var other = expression().ToArray();
-                foreach (var item in value)
-                {
-                    if (other.Contains(item))
-                    {
-                        throw new ArgumentOutOfRangeException(argument.Name, item, "");
-                    }
-                }
-            };
-        }
-
-        #endregion Arguments
+        //// private static readonly Type ThisType = typeof (Has);
+        //// 
+        //// #region Arguments
+        //// 
+        //// public static void NoNulls<T>(Argument<T> argument, string message)
+        ////     where T : IEnumerable<object>
+        //// {
+        ////     foreach (var item in argument.Value)
+        ////     {
+        ////         if (ReferenceEquals(item, null))
+        ////         {
+        ////             throw new ArgumentOutOfRangeException();
+        ////         }
+        ////     }
+        //// }
+        //// 
+        //// public static void NoDuplicates<T>(Argument<T> argument, string message)
+        ////     where T : IEnumerable<object>
+        //// {
+        ////     if (argument.Value.Count() != argument.Value.Distinct().Count())
+        ////     {
+        ////     }
+        //// 
+        ////     throw new NotImplementedException();
+        //// }
+        //// 
+        //// public static ArgumentAssessment<IEnumerable<T>> NoIntersectionWith<T>(Func<IEnumerable<T>> expression)
+        //// {
+        ////     return (argument, message) =>
+        ////     {
+        ////         var value = argument.Value;
+        ////         var other = expression().ToArray();
+        ////         foreach (var item in value)
+        ////         {
+        ////             if (other.Contains(item))
+        ////             {
+        ////                 throw new ArgumentOutOfRangeException(argument.Name, item, "");
+        ////             }
+        ////         }
+        ////     };
+        //// }
+        //// 
+        //// #endregion Arguments
     }
 }

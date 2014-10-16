@@ -39,8 +39,30 @@ using NUnit.Framework;
 
 namespace Guardly.Tests
 {
+    using System.Collections.Generic;
+    using System.Diagnostics;
+    using System.Linq;
+    using System.Reflection;
+    using Shouldly;
+    using Debug = Guardly.Debug;
+
     [TestFixture]
     internal sealed class DebugFixture
     {
+        private static IEnumerable<MethodInfo> GetMethods()
+        {
+            return typeof (Debug).GetMethods(BindingFlags.Static|BindingFlags.Public);
+        }
+
+        [Test, TestCaseSource("GetMethods")]
+        public void ShouldHaveConditionalAttribute(MethodInfo method)
+        {
+            // When
+            var attributes = method.GetCustomAttributes<ConditionalAttribute>().ToArray();
+
+            // Then
+            attributes.Length.ShouldBe(1);
+            attributes[0].ConditionString.ShouldBe("DEBUG");
+        }
     }
 }
