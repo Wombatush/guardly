@@ -45,9 +45,6 @@ namespace Guardly.Tests
     [TestFixture]
     internal class ArgumentFixture
     {
-        private const int HashCodeOne = 123456;
-        private const int HashCodeTwo = 654321;
-
         [Test, TestCaseSource(typeof (TestData), "GetExtendedMessages")]
         public void ShouldCreateWithMember(string member)
         {
