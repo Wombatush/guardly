@@ -39,8 +39,59 @@ using NUnit.Framework;
 
 namespace Guardly.Tests
 {
+    using Guardly.Tests.Helpers;
+    using Shouldly;
+
     [TestFixture]
-    internal static class ArgumentFixture
+    internal class ArgumentFixture
     {
+        private const int HashCodeOne = 123456;
+        private const int HashCodeTwo = 654321;
+
+        [Test, TestCaseSource(typeof (TestData), "GetExtendedMessages")]
+        public void ShouldCreateWithMember(string member)
+        {
+            // When
+            var instance = TestUtility.CreateArgument(() => member);
+
+            // Then
+            instance.ShouldNotBe(null);
+            instance.Name.ShouldBe("member");
+            instance.Value.ShouldBe(member);
+        }
+
+        [Test, TestCaseSource(typeof(TestData), "GetExtendedMessages")]
+        public void ShouldHaveSameHashCodeForSameMember(string member)
+        {
+            // Given
+            var instanceOne = TestUtility.CreateArgument(() => member);
+            var instanceTwo = TestUtility.CreateArgument(() => member);
+
+            // When
+            var hashCodeOne = instanceOne.GetHashCode();
+            var hashCodeTwo = instanceTwo.GetHashCode();
+
+            // Then
+            instanceOne.ShouldNotBeSameAs(instanceTwo);
+            instanceOne.ShouldBe(instanceTwo);
+            hashCodeOne.ShouldBe(hashCodeTwo);
+        }
+
+        [Test, TestCaseSource(typeof(TestData), "GetNotNullObjects")]
+        public void ShouldHaveDifferentHashCodeForDifferentMember(string memberOne, string memberTwo)
+        {
+            // Given
+            var instanceOne = TestUtility.CreateArgument(() => memberOne);
+            var instanceTwo = TestUtility.CreateArgument(() => memberTwo);
+
+            // When
+            var hashCodeOne = instanceOne.GetHashCode();
+            var hashCodeTwo = instanceTwo.GetHashCode();
+
+            // Then
+            instanceOne.ShouldNotBeSameAs(instanceTwo);
+            instanceOne.ShouldNotBe(instanceTwo);
+            hashCodeOne.ShouldNotBe(hashCodeTwo);
+        }
     }
 }
