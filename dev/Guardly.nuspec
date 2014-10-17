@@ -6,7 +6,7 @@
     <authors>Evgeny Nazarov</authors>
     <owners>Evgeny Nazarov</owners>
     <projectUrl>http://guardly.codeplex.com/</projectUrl>
-    <iconUrl>https://www.codeplex.com/</iconUrl>
+    <iconUrl>http://i59.tinypic.com/ekhz4k.png</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Guardly is a defensive programming framework</description>
     <tags>Guardly Design Contract Assert Assertion Defence Framework</tags>
