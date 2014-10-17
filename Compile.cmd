@@ -30,10 +30,10 @@ POPD
 
 XCOPY %NUSPEC_SRC% %NUSPEC_DST% /q /i 
 
-CALL:REBUILD Net35 %%1
-CALL:REBUILD Net40 %%1
-CALL:REBUILD Net45 %%1
-CALL:REBUILD Net451 %%1
+CALL:REBUILD Net35
+CALL:REBUILD Net40
+CALL:REBUILD Net45
+CALL:REBUILD Net451
 
 CALL %NUGET_EXE% pack %NUSPEC_DST%\Guardly.nuspec -noninteractive -version %1
 
@@ -48,9 +48,9 @@ PUSHD "Guardly.%1"
 FOR /F %%I IN ('CD') DO (SET PROJECT_BASE=%%I)
 IF EXIST bin RMDIR /S /Q bin
 IF EXIST obj RMDIR /S /Q obj
-%MSBUILDEXE% /p:Configuration=Debug;VersionAssembly=%2 "Guardly.%1.csproj" 
+%MSBUILDEXE% /p:Configuration=Debug "Guardly.%1.csproj" 
 IF %ERRORLEVEL% NEQ 0 GOTO:BUILD_FAILED GOTO:EOF
-%MSBUILDEXE% /p:Configuration=Release;VersionAssembly=%2 "Guardly.%1.csproj" 
+%MSBUILDEXE% /p:Configuration=Release "Guardly.%1.csproj" 
 IF %ERRORLEVEL% NEQ 0 GOTO:BUILD_FAILED GOTO:EOF
 SET LIB_SRC=%PROJECT_BASE%\bin\Release\*
 XCOPY "%LIB_SRC%" "%LIB_DST%\%1" /q /i 
