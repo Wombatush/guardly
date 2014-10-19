@@ -39,8 +39,85 @@ using NUnit.Framework;
 
 namespace Guardly.Tests
 {
+    using Shouldly;
+
     [TestFixture]
     internal sealed class ReasonFixture
     {
+        private const string Empty = "";
+        private const string White = " ";
+        private const string Single = "Single";
+        private const string Plural = "Plural";
+
+        [TestCase(-2, null, null, null)]
+        [TestCase(-2, Empty, null, null)]
+        [TestCase(-2, White, null, null)]
+        [TestCase(-2, null, null, null)]
+        [TestCase(-2, null, Empty, Empty)]
+        [TestCase(-2, null, White, White)]
+        [TestCase(-2, Single, Plural, Plural)]
+        [TestCase(-1, null, null, null)]
+        [TestCase(-1, Empty, null, null)]
+        [TestCase(-1, White, null, null)]
+        [TestCase(-1, null, null, null)]
+        [TestCase(-1, null, Empty, Empty)]
+        [TestCase(-1, null, White, White)]
+        [TestCase(-1, Single, Plural, Plural)]
+        [TestCase(0, null, null, null)]
+        [TestCase(0, Empty, null, null)]
+        [TestCase(0, White, null, null)]
+        [TestCase(0, null, null, null)]
+        [TestCase(0, null, Empty, Empty)]
+        [TestCase(0, null, White, White)]
+        [TestCase(0, Single, Plural, Plural)]
+        [TestCase(1, null, null, null)]
+        [TestCase(1, Empty, null, Empty)]
+        [TestCase(1, White, null, White)]
+        [TestCase(1, Single, Plural, Single)]
+        [TestCase(1, null, null, null)]
+        [TestCase(1, null, Empty, null)]
+        [TestCase(1, null, White, null)]
+        [TestCase(1, null, Single, null)]
+        [TestCase(2, null, null, null)]
+        [TestCase(2, Empty, null, null)]
+        [TestCase(2, White, null, null)]
+        [TestCase(2, null, null, null)]
+        [TestCase(2, null, Empty, Empty)]
+        [TestCase(2, null, White, White)]
+        [TestCase(2, Single, Plural, Plural)]
+        public void ShouldPluralize(int count, string singular, string plural, string expected)
+        {
+            // When
+            var result = count.Pluralize(singular, expected);
+
+            // Then
+            result.ShouldBe(expected);
+        }
+
+        [TestCase(null, null, ".")]
+        [TestCase(null, Empty, ".")]
+        [TestCase(null, White, ".")]
+        [TestCase(null, "DEF", "DEF.\r\n.")]
+        [TestCase(Empty, null, ".")]
+        [TestCase(Empty, Empty, ".")]
+        [TestCase(Empty, White, ".")]
+        [TestCase(Empty, "DEF", "DEF.\r\n.")]
+        [TestCase(White, null, " .")]
+        [TestCase(White, Empty, " .")]
+        [TestCase(White, White, " .")]
+        [TestCase(White, "DEF", "DEF.\r\n .")]
+        [TestCase("ABC", null, "ABC.")]
+        [TestCase("ABC", Empty, "ABC.")]
+        [TestCase("ABC", White, "ABC.")]
+        [TestCase("ABC", "DEF", "DEF.\r\nABC.")]
+        public void ShouldCompose(string baseMessage, string extendedMessage, string expected)
+        {
+            // When
+            var result = Reason.Compose(baseMessage, extendedMessage);
+
+            // Then
+            result.ShouldNotBe(null);
+            result.ToString().ShouldBe(expected);
+        }
     }
 }
