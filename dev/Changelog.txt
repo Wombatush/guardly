@@ -1,12 +1,13 @@
 Version 1.0.1
 
-	* Added Has.NoNulls argument assessment
-	* Added Has.NoDuplicates argument assessment
-	* Added Has.LengthEqualTo argument assessment
-	* Added Has.LengthLessThan argument assessment
-	* Added Has.LengthGreaterThan argument assessment
-	* Added Has.LengthLessThanOrEqualTo argument assessment
-	* Added Has.LengthGreaterThanOrEqualTo argument assessment
+	* Added Has.NoNulls argument assessment.
+	* Added Has.NoDuplicates argument assessment.
+	* Added Has.LengthEqualTo argument assessment.
+	* Added Has.LengthLessThan argument assessment.
+	* Added Has.LengthGreaterThan argument assessment.
+	* Added Has.LengthLessThanOrEqualTo argument assessment.
+	* Added Has.LengthGreaterThanOrEqualTo argument assessment.
+	* Improved quality assurance (added more unit tests).
 
 Version 1.0.0
 
