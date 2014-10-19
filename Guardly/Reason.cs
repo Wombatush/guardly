@@ -38,12 +38,18 @@
 
 namespace Guardly
 {
-    using System.Diagnostics;
     using System.Text;
 
-    [DebuggerNonUserCode]
+#if !DEBUG
+    [System.Diagnostics.DebuggerNonUserCode]
+#endif
     internal static class Reason
     {
+        public static string Pluralize(this int count, string singular, string plural)
+        {
+            return count == 1 ? singular : plural;
+        }
+
         public static StringBuilder Compose(string baseMessage, string extendedMessage)
         {
             var builder = new StringBuilder();

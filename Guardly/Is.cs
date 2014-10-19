@@ -39,12 +39,13 @@
 namespace Guardly
 {
     using System;
-    using System.Diagnostics;
 
     /// <summary>
     /// Represents a class whose assessments start with "Is".
     /// </summary>
-    [DebuggerNonUserCode]
+#if !DEBUG
+    [System.Diagnostics.DebuggerNonUserCode]
+#endif
     public static class Is
     {
         #region Arguments

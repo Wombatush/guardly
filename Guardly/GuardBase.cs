@@ -39,12 +39,13 @@
 namespace Guardly
 {
     using System;
-    using System.Diagnostics;
 
     /// <summary>
     /// Base class for guarded value wrappers.
     /// </summary>
-    [DebuggerNonUserCode]
+#if !DEBUG
+    [System.Diagnostics.DebuggerNonUserCode]
+#endif
     public abstract class GuardBase : IEquatable<GuardBase>
     {
         private readonly int hashCode;

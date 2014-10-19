@@ -39,13 +39,14 @@
 namespace Guardly
 {
     using System;
-    using System.Diagnostics;
 
     /// <summary>
     /// Base class for guarded value wrappers.
     /// </summary>
     /// <typeparam name="T">Guarded value type.</typeparam>
-    [DebuggerNonUserCode]
+#if !DEBUG
+    [System.Diagnostics.DebuggerNonUserCode]
+#endif
     public abstract class GuardBase<T> : GuardBase
     {
         private readonly Func<T> getter;

@@ -45,7 +45,9 @@ namespace Guardly
     /// <summary>
     /// Guard represents the ways to verify argument preconditions and asserts for debug configuration only.
     /// </summary>
+#if !DEBUG
     [DebuggerNonUserCode]
+#endif
     public static class Debug
     {
         /// <summary>
