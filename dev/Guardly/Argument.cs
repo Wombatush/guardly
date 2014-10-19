@@ -45,6 +45,9 @@ namespace Guardly
     /// Argument wrapper.
     /// </summary>
     /// <typeparam name="T">Argument type.</typeparam>
+#if !DEBUG
+    [System.Diagnostics.DebuggerNonUserCode]
+#endif
     public sealed class Argument<T> : GuardBase<T>
     {
         private readonly MemberInfo member;

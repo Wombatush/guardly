@@ -73,5 +73,25 @@ namespace Guardly.Tests.Helpers
         {
             return GetExtendedMessages().Select(extendedMessage => new TestCaseData(WhiteSpace, extendedMessage, TestUtility.GetExpectedArgumentMessage(extendedMessage)));
         }
+
+        public static IEnumerable<TestCaseData> GetRefArray()
+        {
+            return GetExtendedMessages().Select(extendedMessage => new TestCaseData(new object[0], extendedMessage));
+        }
+
+        public static IEnumerable<TestCaseData> GetRefArrayExt()
+        {
+            return GetExtendedMessages().Select(extendedMessage => new TestCaseData(new object[0], extendedMessage, TestUtility.GetExpectedArgumentMessage(extendedMessage)));
+        }
+
+        public static IEnumerable<TestCaseData> GetArrayNoError()
+        {
+            return GetExtendedMessages().Select(extendedMessage => new TestCaseData(new int[0], extendedMessage));
+        }
+        
+        public static IEnumerable<TestCaseData> GetArrayWithError()
+        {
+            return GetExtendedMessages().Select(extendedMessage => new TestCaseData(new int[0], extendedMessage, TestUtility.GetExpectedArgumentMessage(extendedMessage)));
+        }
     }
 }
