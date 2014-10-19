@@ -41,7 +41,6 @@ namespace Guardly
     using System;
     using System.Collections;
     using System.Collections.Generic;
-    using System.Linq;
 
     /// <summary>
     /// Represents a class whose assessments start with "Has".
