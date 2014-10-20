@@ -177,5 +177,81 @@ namespace Guardly.Tests
             exception.ActualValue.ShouldBe(TestData.WhiteSpace);
             exception.InnerException.ShouldBe(null);
         }
+
+        #region Is.In
+
+        [Test, TestCaseSource(typeof(TestData), "GetNotNullObjects")]
+        public void ShouldSucceedForArgumentIsInWhenPresent(string stringArg, string message)
+        {
+            // Given
+            stringArg = TestData.Generic;
+            var argument = TestUtility.CreateArgument(() => stringArg);
+
+            // When
+            var action = new TestDelegate(() => Is.In(() => new[] { TestData.WhiteSpace, TestData.Generic })(argument, message));
+
+            // Then
+            Assert.DoesNotThrow(action);
+        }
+
+        [Test, TestCaseSource(typeof(TestData), "GetEmptyObjects")]
+        public void ShouldFailForArgumentIsInWhenNotPresent(string stringArg, string message, string format)
+        {
+            // Given
+            stringArg = TestData.Generic;
+            var argument = TestUtility.CreateArgument(() => stringArg);
+            var expected = string.Format(format, "Provided parameter should be present in internal enumeration","stringArg");
+            expected += Environment.NewLine + "Actual value was " + TestData.Generic + ".";
+
+            // When
+            var action = new TestDelegate(() => Is.In(() => new[] { TestData.WhiteSpace })(argument, message));
+
+            // Then
+            var exception = Assert.Throws<ArgumentOutOfRangeException>(action);
+            exception.ParamName.ShouldBe("stringArg");
+            exception.Message.ShouldBe(expected);
+            exception.ActualValue.ShouldBe(TestData.Generic);
+            exception.InnerException.ShouldBe(null);
+        }
+
+        #endregion Is.In
+
+        #region Is.NotIn
+
+        [Test, TestCaseSource(typeof(TestData), "GetNotNullObjects")]
+        public void ShouldSucceedForArgumentIsNotInWhenNotPresent(string stringArg, string message)
+        {
+            // Given
+            stringArg = TestData.Generic;
+            var argument = TestUtility.CreateArgument(() => stringArg);
+
+            // When
+            var action = new TestDelegate(() => Is.NotIn(() => new[] { TestData.WhiteSpace })(argument, message));
+
+            // Then
+            Assert.DoesNotThrow(action);
+        }
+
+        [Test, TestCaseSource(typeof(TestData), "GetEmptyObjects")]
+        public void ShouldFailForArgumentIsNotInWhenPresent(string stringArg, string message, string format)
+        {
+            // Given
+            stringArg = TestData.Generic;
+            var argument = TestUtility.CreateArgument(() => stringArg);
+            var expected = string.Format(format, "Provided parameter should not be present in internal enumeration", "stringArg");
+            expected += Environment.NewLine + "Actual value was " + TestData.Generic + ".";
+
+            // When
+            var action = new TestDelegate(() => Is.NotIn(() => new[] { TestData.WhiteSpace, TestData.Generic })(argument, message));
+
+            // Then
+            var exception = Assert.Throws<ArgumentOutOfRangeException>(action);
+            exception.ParamName.ShouldBe("stringArg");
+            exception.Message.ShouldBe(expected);
+            exception.ActualValue.ShouldBe(TestData.Generic);
+            exception.InnerException.ShouldBe(null);
+        }
+
+        #endregion Is.NotIn
     }
 }

@@ -83,9 +83,20 @@ namespace Guardly
                 return;
             }
 
-            foreach (var assessment in assessments)
+            try
             {
-                assessment(argument, null);
+                foreach (var assessment in assessments)
+                {
+                    assessment(argument, null);
+                }
+            }
+            catch (ArgumentException)
+            {
+                throw;
+            }
+            catch (Exception exception)
+            {
+                throw new ArgumentException(exception.Message, argument.Name, exception);
             }
         }
 
@@ -109,7 +120,18 @@ namespace Guardly
                 return;
             }
 
-            assessment(argument, message);
+            try
+            {
+                assessment(argument, message);
+            }
+            catch (ArgumentException)
+            {
+                throw;
+            }
+            catch (Exception exception)
+            {
+                throw new ArgumentException(exception.Message, argument.Name, exception);
+            }
         }
 
         //// public static void Assert<T>(Expression<Func<T>> expression, params IsAssert<T>[] assessments)
@@ -159,12 +181,12 @@ namespace Guardly
                 return null;
             }
 
-            if (expression.Body.NodeType != ExpressionType.MemberAccess)
+            var memberExpression = expression.Body as MemberExpression;
+            if (memberExpression == null)
             {
                 return null;
             }
-
-            var memberExpression = (MemberExpression) expression.Body;
+            
             var member = memberExpression.Member;
             var memberHashCode = member.GetHashCode();
 

@@ -1,3 +1,10 @@
+Version 1.0.2
+
+	* Added Is.In argument assessment.
+	* Added Is.NotIn argument assessment.
+	* Wrap argument exceptions other than ArgumentException type by ArgumentException type
+	* Optimized argument validation performance (replace expression body check by 'is')
+
 Version 1.0.1
 
 	* Added Has.NoNulls argument assessment.

@@ -39,6 +39,8 @@
 namespace Guardly
 {
     using System;
+    using System.Collections.Generic;
+    using System.Linq;
 
     /// <summary>
     /// Represents a class whose assessments start with "Is".
@@ -67,17 +69,6 @@ namespace Guardly
                 throw new ArgumentNullException(argument.Name, reason.ToString());
             }
         }
-
-        //// public static void NotEmpty<T>(Argument<T> argument, string message)
-        ////     where T : IEnumerable<object>
-        //// {
-        ////     if (!argument.Value.Any())
-        ////     {
-        ////         var reason = Reason.Compose("Provided parameter should not be an empty sequence", message).ToString();
-        ////         
-        ////         throw new ArgumentOutOfRangeException(argument.Name, reason.ToString());
-        ////     }
-        //// }
 
         /// <summary>
         /// Performs not-null and not-empty assessment for the argument of string type.
@@ -127,6 +118,50 @@ namespace Guardly
 
                 throw new ArgumentOutOfRangeException(argument.Name, value, reason.ToString());
             }
+        }
+
+        /// <summary>
+        /// Performs argument assessment for the value being present in provided enumeration.
+        /// </summary>
+        /// <typeparam name="T">Argument type.</typeparam>
+        /// <param name="expression">Expression to retrieve an internal enumeration.</param>
+        /// <returns>An argument assessment delegate used by <see cref="Guard"/>.</returns>
+        /// <exception cref="ArgumentOutOfRangeException">Argument was not present in provided enumeration.</exception>
+        public static ArgumentAssessment<T> In<T>(Func<IEnumerable<T>> expression)
+        {
+            return (argument, message) =>
+            {
+                var value = argument.Value;
+                var counterparty = expression();
+                if (!counterparty.Contains(value))
+                {
+                    var reason = Reason.Compose("Provided parameter should be present in internal enumeration", message).ToString();
+
+                    throw new ArgumentOutOfRangeException(argument.Name, value, reason);
+                }
+            };
+        }
+
+        /// <summary>
+        /// Performs argument assessment for the value not being present in provided enumeration.
+        /// </summary>
+        /// <typeparam name="T">Argument type.</typeparam>
+        /// <param name="expression">Expression to retrieve an internal enumeration.</param>
+        /// <returns>An argument assessment delegate used by <see cref="Guard"/>.</returns>
+        /// <exception cref="ArgumentOutOfRangeException">Argument was present in provided enumeration.</exception>
+        public static ArgumentAssessment<T> NotIn<T>(Func<IEnumerable<T>> expression)
+        {
+            return (argument, message) =>
+            {
+                var value = argument.Value;
+                var counterparty = expression();
+                if (counterparty.Contains(value))
+                {
+                    var reason = Reason.Compose("Provided parameter should not be present in internal enumeration", message).ToString();
+
+                    throw new ArgumentOutOfRangeException(argument.Name, value, reason);
+                }
+            };
         }
         
         //// public static ArgumentAssessment<T> LessThan<T>(Func<T> expression)
@@ -197,16 +232,6 @@ namespace Guardly
         ////             throw new ArgumentOutOfRangeException(argument.Name, value, reason.ToString());
         ////         }
         ////     };
-        //// }
-        //// 
-        //// public static ArgumentAssessment<T> In<T>(Func<IEnumerable<T>> expression)
-        //// {
-        ////     throw new NotImplementedException();
-        //// }
-        //// 
-        //// public static ArgumentAssessment<T> NotIn<T>(Func<IEnumerable<T>> expression)
-        //// {
-        ////     throw new NotImplementedException();
         //// }
         
         #endregion Arguments
