@@ -44,6 +44,7 @@ namespace Guardly.Tests.Helpers
 
     internal static class TestData
     {
+        public const string Generic = "AB";
         public const string WhiteSpace = " ";
 
         private static IEnumerable<string> GetExtendedMessages()
@@ -56,7 +57,7 @@ namespace Guardly.Tests.Helpers
 
         public static IEnumerable<TestCaseData> GetNotNullObjects()
         {
-            return GetExtendedMessages().Select(extendedMessage => new TestCaseData("AB", extendedMessage));
+            return GetExtendedMessages().Select(extendedMessage => new TestCaseData(Generic, extendedMessage));
         }
 
         public static IEnumerable<TestCaseData> GetNullObjects()
